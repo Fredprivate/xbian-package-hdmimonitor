@@ -10,3 +10,5 @@ To find the triggerline you need, start up 'cec-client -m' in a terminal which m
 
 Limitations:
 You have to disable XBMC autostart and can't use the init file for XBMC anymore (it is not disabled but can result in unwanted behaviour when HDMI monitor is running)
+A modded init file for XBMC is included, xbmcmod. So 'sudo /etc/init.d/xbmc start' becomes 'sudo /etc/init.d/xbmcmod start' etc.
+

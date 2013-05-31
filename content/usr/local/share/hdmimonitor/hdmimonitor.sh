@@ -95,33 +95,8 @@ do
                         echo "$(date +"[%m-%d-%y %T]:") Starting XBMC" >> $logfile
                 fi
 
-    		sudo /usr/local/share/hdmimonitor/startxbmc.sh
-: '
-commented this bs------------------------------------------------------------------------------------------------------
-		#check if xbmc has finished and is not rebooting
-	       while true
-        	do
+    		sudo /usr/local/share/hdmimonitor/startxbmc.sh $XBMC_nice
 
-        		if $enable_logging; then
-        			echo "$(date +"[%m-%d-%y %T]:") XBMC has finished, waiting 20 seconds for it to come back to check if really finished" >> $logfile
-        		fi
-
-        	sleep 20
-
-        		if [ ! $(ps -A | grep xbmc.bin | wc -l) -eq 0 ]; then
-                		if $enable_logging; then
-                        		echo "$(date +"[%m-%d-%y %T]:") XBMC has finished, but came back, checking again in 20 seconds" >> $logfile
-                		fi
-
-                		true
-        		else
-                		echo "$(date +"[%m-%d-%y %T]:") XBMC has finished, did not come back, assuming proper shutdown" >> $logfile
-                		break
-        		fi
-
-        	done
------------------------------------------------------------------------------------------------------------
-'
                 if $enable_logging; then
                         echo "$(date +"[%m-%d-%y %T]:") XBMC finished, continueing monitoring" >> $logfile
                 fi

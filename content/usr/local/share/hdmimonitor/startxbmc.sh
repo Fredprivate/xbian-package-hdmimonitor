@@ -2,8 +2,7 @@
 
 # This file is normally called by hdmimonitor.sh, so files and variables are not checked for existence. 
 
-settings_file=/usr/local/etc/hdmimonitor/settings.conf
-source $settings_file
+XBMC_nice=$1
 
 if [ $(ps -A | grep xbmc.bin | wc -l) -eq 0 ]; then
 
@@ -30,11 +29,17 @@ if [ $(ps -A | grep xbmc.bin | wc -l) -eq 0 ]; then
 #every thing after xbmc has exited
 	pkill splash
 
-else
+#start hdmimonitor (for when XBMC is started from init script)
 
-	if $enable_logging; then
-		echo "$(date +"[%m-%d-%y %T]:") Want to start XBMC, but XBMC is already running" >> $logfile
+	if [ -f "/etc/init.d/hdmimonitor" ]; then
+		sudo /etc/init.d/hdmimonitor start >/dev/null &
 	fi
+
+#else
+
+#	if $enable_logging; then
+#		echo "$(date +"[%m-%d-%y %T]:") Want to start XBMC, but XBMC is already running" >> $logfile
+#	fi
 
 fi
 
