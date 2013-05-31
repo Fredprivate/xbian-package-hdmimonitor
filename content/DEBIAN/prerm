@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $1 == "remove" ]; then
+
+        if [ -f "/etc/init.d/hdmimonitor" ]; then
+                /etc/init.d/hdmimonitor stop &>/dev/null;
+        fi
+
+fi
+

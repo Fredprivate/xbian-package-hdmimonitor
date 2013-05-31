@@ -1,0 +1,9 @@
+Origin: XBian
+Package: xbian-package-hdmimonitor
+Version: 1.0
+Section: net
+Priority: optional
+Architecture: armhf
+Depends: xbian-update,xbian-package-xbmc
+Maintainer: sjengfred <sjengfred@home.nl>
+Description: HDMI monitor for starting XBMC

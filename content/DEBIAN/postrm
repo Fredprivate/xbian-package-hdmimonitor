@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$1" == "remove" ] || [ "$1" == "purge" ]; then
+
+	if [ -d "/usr/local/etc/hdmimonitor" ]; then
+		rm -r /usr/local/etc/hdmimonitor &>/dev/null
+	fi
+	if [ -d "/usr/local/share/hdmimonitor" ]; then
+		rm -r /usr/local/share/hdmimonitor &>/dev/null
+	fi
+fi

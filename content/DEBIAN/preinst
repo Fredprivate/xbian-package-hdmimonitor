@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	 if [ -f "/usr/local/etc/hdmimonitor/settings.conf" ]; then
+		printf "\nPrevious configuration file found, hdmimonitor can try to use this file so you keep your settings\n"
+              while true; do
+    			read -p "Do you want to use the old configuration file? (yes/no) " yn
+    			case $yn in
+        			yes ) 	mv /usr/local/etc/hdmimonitor/settings.conf /usr/local/etc/hdmimonitor/settings.reuse; 
+					break;;
+        			no )   mv /usr/local/etc/hdmimonitor/settings.conf /usr/local/etc/hdmimonitor/settings.old; 
+					break;;
+        			* ) echo "Please answer yes or no.";;
+    			esac
+		done
+	fi
+
+fi
